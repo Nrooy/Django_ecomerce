@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from cartservice.views import AddToCartView, CartView, DeleteCartItemView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/ecomSys/cart/add/', AddToCartView.as_view()),
+    path('api/ecomSys/cart/show/', CartView.as_view()),
+    path('api/ecomSys/cart/delete/<str:user_id>/<str:product_id>/', DeleteCartItemView.as_view()),
 ]
